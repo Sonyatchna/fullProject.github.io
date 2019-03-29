@@ -1,0 +1,49 @@
+<form [formGroup]="loginForm" class="form-mar">
+
+  <div class="mb-5 lead input-div header">Sign In</div>
+
+  <div class="form-group row input-div">
+    <input
+      type="text"
+      formControlName="login"
+      placeholder="Login"
+      class="input-group col-sm-3 form-control"
+    >
+  </div>
+
+  <div *ngIf="loginForm.get('login').invalid && (loginForm.get('login').dirty || loginForm.get('login').touched)" class="form-text text-muted col-sm-4 error-form">
+    <div *ngIf="loginForm.get('login').errors.required" class="error-form-message">Login is required!</div>
+    <div *ngIf="loginForm.get('login').errors.minlength" class="error-form-message">Login must be longer than 5!</div>
+    <div *ngIf="loginForm.get('login').errors.maxlength" class="error-form-message">Login must be shorter than 15!</div>
+  </div>
+  <br>
+
+
+  <div class="form-group row input-div">
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Password"
+      class="input-group col-sm-3 form-control"
+    >
+  </div>
+
+  <div *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)" class="form-text text-muted col-sm-4 error-form">
+    <div *ngIf="loginForm.get('password').errors.required" class="error-form-message">Password is required!</div>
+    <div *ngIf="loginForm.get('password').errors.minlength" class="error-form-message">Password must be longer than 5!</div>
+    <div *ngIf="loginForm.get('password').errors.maxlength" class="error-form-message">Password must be shorter than 15!</div>
+  </div>
+  <br>
+
+
+  <div class="button-container mar-au">
+    <button (click)="sendForm1()" [disabled]="!loginForm.valid" type="button" class="btn btn-success col-sm-4">Send</button><br>
+    <a routerLink="/register" class="btn btn-info col-sm-4" role="button">To Register</a>
+  </div>
+  <br>
+
+  <div class="button-container mar-au">
+    <a routerLink="/restore-password" class="btn btn-info col-sm-4" role="button">Forgot pass?</a>
+  </div>
+
+</form>

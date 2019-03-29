@@ -1,0 +1,26 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">First name</th>
+    <th scope="col">Last name</th>
+    <th scope="col">Login</th>
+    <th scope="col">Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="user">
+    <th scope="row">{{user._id}}</th>
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.login}}</td>
+    <td>{{user.email}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+
+<div class="button-container mar-au">
+<a (click)="backClicked()" class="btn btn-info col-sm-4 color-white" role="button">Back</a>
+</div>

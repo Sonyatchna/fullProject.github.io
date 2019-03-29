@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Login</th>
+    <th scope="col">Email</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; id" (click)="getDetailedInfo(user._id)">
+    <th scope="row">{{user._id}}</th>
+    <td>{{user.login}}</td>
+    <td>{{user.email}}</td>
+    <td><button (click)="deleteUserById(user._id); $event.stopPropagation()" class="btn btn-success col-sm-5">Delete user</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+
+<div class="button-container mar-au">
+<button (click)="logOut()" class="btn btn-info col-sm-4">Log out</button>
+</div>
